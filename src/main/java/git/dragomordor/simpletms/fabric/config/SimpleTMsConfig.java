@@ -19,8 +19,13 @@ public class SimpleTMsConfig {
     private static boolean allMovesLearnable = false;
     private static int tmCooldownTicks = 0;
     private static boolean imprintableBlankTMs = true;
-//    private static boolean canCraftTR = true;
-//    private static boolean canCraftTM = false;
+
+
+    private static float trDropPercentChance = 5.0F;
+    private static float tmDropPercentChance = 0.01F;
+
+    private static boolean canCraftTR = true;
+    private static boolean canCraftTM = false;
 
     public static void loadConfig() {
         if (!Files.exists(CONFIG_PATH)) {
@@ -36,6 +41,10 @@ public class SimpleTMsConfig {
             allMovesLearnable = Boolean.parseBoolean(properties.getProperty("AnyMoveAnyPokemon", "false"));
             tmCooldownTicks = Integer.parseInt(properties.getProperty("TMCooldownTicks", "100"));
             imprintableBlankTMs = Boolean.parseBoolean(properties.getProperty("ImprintableBlankTMs","true"));
+
+            trDropPercentChance = Float.parseFloat(properties.getProperty("TRDropPercentChance", "5.0"));
+            tmDropPercentChance = Float.parseFloat(properties.getProperty("TMDropPercentChance", "0.01"));
+
 //            canCraftTR = Boolean.parseBoolean(properties.getProperty("CanCraftTR","true"));
 //            canCraftTM = Boolean.parseBoolean(properties.getProperty("CanCraftTM","false"));
 
@@ -54,6 +63,9 @@ public class SimpleTMsConfig {
             properties.setProperty("AnyMoveAnyPokemon", "false");
             properties.setProperty("TMCooldownTicks", "100");
             properties.setProperty("ImprintableBlankTMs", "true");
+            properties.setProperty("TRDropPercentChance", "5.0");
+            properties.setProperty("TMDropPercentChance", "0.01");
+
 //            properties.setProperty("CanCraftTR", "true");
 //            properties.setProperty("CanCraftTM", "false");
 
@@ -66,31 +78,39 @@ public class SimpleTMsConfig {
         }
     }
 
-    public static boolean areEggMovesLearnable() {
+    public static boolean getAreEggMovesLearnable() {
         return eggMovesLearnable;
     }
 
-    public static boolean areTutorMovesLearnable() {
+    public static boolean getAreTutorMovesLearnable() {
         return tutorMovesLearnable;
     }
 
-    public static boolean areAllMovesLearnable() {
+    public static boolean getAreAllMovesLearnable() {
         return allMovesLearnable;
     }
 
-    public static int tmCooldownTicks() {
+    public static int getTMCooldownTicks() {
         return tmCooldownTicks;
     }
 
-    public static boolean imprintableBlankTMs() {
+    public static boolean getImprintableBlankTMs() {
         return imprintableBlankTMs;
     }
 
-//    public static boolean canCraftTR() {
+    public static float getTRDropChance() {
+        return trDropPercentChance;
+    }
+
+    public static float getTMDropChance() {
+        return tmDropPercentChance;
+    }
+
+//    public static boolean getCanCraftTR() {
 //        return canCraftTR;
 //    }
 //
-//    public static boolean canCraftTM() {
+//    public static boolean getCanCraftTM() {
 //        return canCraftTM;
 //    }
 }

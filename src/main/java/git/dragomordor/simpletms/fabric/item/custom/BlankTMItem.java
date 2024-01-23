@@ -30,7 +30,7 @@ public class BlankTMItem extends PokemonUseItem {
     @Override
     public ActionResult processInteraction(ItemStack itemStack, PlayerEntity player, PokemonEntity target, Pokemon pokemon) {
 
-        if (!SimpleTMsConfig.imprintableBlankTMs()) {
+        if (!SimpleTMsConfig.getImprintableBlankTMs()) {
             player.sendMessage(Text.of("Blank TM and TR imprinting disabled!"));
             return ActionResult.FAIL;
         }

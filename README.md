@@ -33,9 +33,9 @@ Modify the mod's configuration file (`config/simpletms_config.properties`) to cu
 
 ## Support and Feedback
 
-If you encounter any issues or have suggestions for improvement, feel free to create an issue or pull request on the GitHub repository -> [Fabric](https://github.com/Dragomordor/SimpleTMsFabric) 
+If you encounter any issues or have suggestions for improvement, feel free to create an issue or pull request on the GitHub repository -> [Fabric](https://github.com/Dragomordor/SimpleTMsFabric) & [Forge](https://github.com/Dragomordor/SimpleTMsForge)
 
-**Note:** This mod is a side addition to the Cobblemon mod and requries Cobblemon 1.4.0 or 1.4.1.
+**Note:** This mod is a side addition to the Cobblemon mod and requires Cobblemon 1.4.0 or 1.4.1.
 
 ## Credits
 

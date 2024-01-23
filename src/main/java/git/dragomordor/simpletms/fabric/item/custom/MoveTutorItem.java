@@ -4,6 +4,8 @@ import com.cobblemon.mod.common.api.moves.*;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import git.dragomordor.simpletms.fabric.config.SimpleTMsConfig;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
@@ -29,7 +31,7 @@ public class MoveTutorItem extends PokemonUseItem {
     private final String moveName;
     private final String moveType;
     private final boolean SingleUse;
-    private final int cooldownTicks = SimpleTMsConfig.tmCooldownTicks();
+    private final int cooldownTicks = SimpleTMsConfig.getTMCooldownTicks();
 
     public MoveTutorItem(String moveName, String moveType, boolean singleUse) {
         super(new FabricItemSettings().maxCount(1));
@@ -45,7 +47,7 @@ public class MoveTutorItem extends PokemonUseItem {
         BenchedMoves benchedMoves = pokemon.getBenchedMoves(); // moves Pokémon currently has benched
         MoveTemplate taughtMove = Moves.INSTANCE.getByName(moveName);
 
-        final int cooldownTicks = SimpleTMsConfig.tmCooldownTicks(); // Define the cooldown in ticks
+        final int cooldownTicks = SimpleTMsConfig.getTMCooldownTicks(); // Define the cooldown in ticks
 
 
         if (player.getItemCooldownManager().isCoolingDown(this)) {
@@ -103,17 +105,17 @@ public class MoveTutorItem extends PokemonUseItem {
         return false;
     }
     private boolean canLearnMove(ItemStack itemStack, PlayerEntity player, PokemonEntity target, Pokemon pokemon, MoveTemplate taughtMove) {
-        boolean canLearnMove = SimpleTMsConfig.areAllMovesLearnable(); // Default value for canLearnMove
+        boolean canLearnMove = SimpleTMsConfig.getAreAllMovesLearnable(); // Default value for canLearnMove
         if (canLearnMove) {
             return true;
         }
         if (pokemon.getForm().getMoves().getTmMoves().contains(taughtMove)) {
             return true;
         }
-        if (pokemon.getForm().getMoves().getTutorMoves().contains(taughtMove) && SimpleTMsConfig.areTutorMovesLearnable()) {
+        if (pokemon.getForm().getMoves().getTutorMoves().contains(taughtMove) && SimpleTMsConfig.getAreTutorMovesLearnable()) {
             return true;
         }
-        if (pokemon.getForm().getMoves().getEggMoves().contains(taughtMove) && SimpleTMsConfig.areEggMovesLearnable()) {
+        if (pokemon.getForm().getMoves().getEggMoves().contains(taughtMove) && SimpleTMsConfig.getAreEggMovesLearnable()) {
             return true;
         }
         return false;
@@ -142,7 +144,7 @@ public class MoveTutorItem extends PokemonUseItem {
         moveTypeColors.put("Steel", 0xD0D0D0);
         moveTypeColors.put("Water", 0x63A8EB);
     }
-
+    @Environment(EnvType.CLIENT)
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
@@ -152,7 +154,7 @@ public class MoveTutorItem extends PokemonUseItem {
        if (player!= null) {
            if (player.getItemCooldownManager().isCoolingDown(this)) {
                // get remaining cooldown
-               int maxCooldownTicks = SimpleTMsConfig.tmCooldownTicks();
+               int maxCooldownTicks = SimpleTMsConfig.getTMCooldownTicks();
                int ticksLeft = Math.round(player.getItemCooldownManager().getCooldownProgress(this,0.0F)*maxCooldownTicks);
                //convert cooldown to seconds, minutes, hours
                int hoursLeft = ticksLeft / 72000; // 72000 ticks = 1 hour
@@ -204,6 +206,16 @@ public class MoveTutorItem extends PokemonUseItem {
             Text moveTypeText = MutableText.of(moveContent).setStyle(Style.EMPTY.withColor(color));
             tooltip.add(moveTypeText); // Add the colored move type to the tooltip
         }
+    }
+
+
+
+    public String getMoveType() {
+        return moveType;
+    }
+
+    public String getMoveName() {
+        return moveName;
     }
 
 }

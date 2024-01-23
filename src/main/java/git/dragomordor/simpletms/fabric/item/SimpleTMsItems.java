@@ -1,14 +1,22 @@
 package git.dragomordor.simpletms.fabric.item;
 
+import com.cobblemon.mod.common.api.moves.MoveTemplate;
+import com.cobblemon.mod.common.pokemon.Pokemon;
 import git.dragomordor.simpletms.fabric.SimpleTMsMod;
 import git.dragomordor.simpletms.fabric.item.custom.BlankTMItem;
 import git.dragomordor.simpletms.fabric.item.custom.MoveTutorItem;
+import git.dragomordor.simpletms.fabric.util.TMsTRsList;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 public class SimpleTMsItems {
     // register blank TMItems
@@ -1889,4 +1897,73 @@ public class SimpleTMsItems {
         }
 
     }
+
+    // Get Random TM
+    public static ItemStack getRandomTMItemStack(Pokemon pokemon) {
+        List<MoveTutorItem> allTMs = TMsTRsList.getAllTMs();
+        if (allTMs.isEmpty() || pokemon == null) {
+            return ItemStack.EMPTY;
+        }
+
+        // Combine all TM moves available to the Pokémon
+        List<MoveTemplate> tmMoves = new ArrayList<>();
+        tmMoves.addAll(pokemon.getForm().getMoves().getTmMoves());
+        tmMoves.addAll(pokemon.getForm().getMoves().getTutorMoves());
+        tmMoves.addAll(pokemon.getForm().getMoves().getEggMoves());
+
+        // Extract move names from MoveTemplate instances
+        List<String> moveNames = tmMoves.stream()
+                .map(MoveTemplate::getName)
+                .collect(Collectors.toList());
+
+        // Filter TMs of the specified type
+        List<MoveTutorItem> tmItemsofType = allTMs.stream()
+                .filter(tm -> moveNames.contains(tm.getMoveName())) // Filter based on move names
+                .collect(Collectors.toList());
+
+        if (tmItemsofType.isEmpty()) {
+            return ItemStack.EMPTY;
+        }
+
+        // Choose a random TM from the filtered list
+        MoveTutorItem randomTM = tmItemsofType.get(new Random().nextInt(tmItemsofType.size()));
+        return new ItemStack(randomTM, 1);
+    }
+
+
+
+
+    // get random TR
+    public static ItemStack getRandomTRItemStack(Pokemon pokemon) {
+        List<MoveTutorItem> allTRs = TMsTRsList.getAllTRs();
+        if (allTRs.isEmpty() || pokemon == null) {
+            return ItemStack.EMPTY;
+        }
+
+        // Combine all TM moves available to the Pokémon
+        List<MoveTemplate> trMoves = new ArrayList<>();
+        trMoves.addAll(pokemon.getForm().getMoves().getTmMoves());
+        trMoves.addAll(pokemon.getForm().getMoves().getTutorMoves());
+        trMoves.addAll(pokemon.getForm().getMoves().getEggMoves());
+
+        // Extract move names from MoveTemplate instances
+        List<String> moveNames = trMoves.stream()
+                .map(MoveTemplate::getName)
+                .collect(Collectors.toList());
+
+        // Filter TMs of the specified type
+        List<MoveTutorItem> trItemsofType = allTRs.stream()
+                .filter(tr -> moveNames.contains(tr.getMoveName())) // Filter based on move names
+                .collect(Collectors.toList());
+
+        if (trItemsofType.isEmpty()) {
+            return ItemStack.EMPTY;
+        }
+
+        // Choose a random TM from the filtered list
+        MoveTutorItem randomTM = trItemsofType.get(new Random().nextInt(trItemsofType.size()));
+        return new ItemStack(randomTM, 1);
+    }
+
+
 }
