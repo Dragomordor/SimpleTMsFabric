@@ -1871,9 +1871,6 @@ public class SimpleTMsItemGroups {
 
                     }).build());
 
-    // TODO add all en_us entries and all json entries
-    // TODO logo per type
-
     public static void registerItemGroups() {
         SimpleTMsMod.LOGGER.info("Registering Item Groups for " + SimpleTMsMod.MODID);
 

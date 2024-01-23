@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "git.dragomordor.simpletms"
-version = "1.0.0"
+version = "1.1.0"
 
 repositories {
     mavenLocal()
@@ -22,7 +22,7 @@ dependencies {
 
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.89.3+1.20.1")
     modImplementation("net.fabricmc:fabric-language-kotlin:1.10.17+kotlin.1.9.22")
-    modImplementation("com.cobblemon:fabric:1.4.0+1.20.1")
+    modImplementation("com.cobblemon:fabric:1.4.0+")
 
 }
 
