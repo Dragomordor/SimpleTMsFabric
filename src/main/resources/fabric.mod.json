@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "simpletms",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "name": "Cobblemon: Simple TM's",
   "description": "Brings TM's and HM's to Cobblemon",
   "authors": [

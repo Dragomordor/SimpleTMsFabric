@@ -577,7 +577,6 @@ public class TMsTRsList {
         ALL_TMS.add(SimpleTMsItems.TM_OVERDRIVE);
         ALL_TMS.add(SimpleTMsItems.TM_OVERHEAT);
         ALL_TMS.add(SimpleTMsItems.TM_PAINSPLIT);
-        ALL_TMS.add(SimpleTMsItems.TM_PALEOWAVE);
         ALL_TMS.add(SimpleTMsItems.TM_PARABOLICCHARGE);
         ALL_TMS.add(SimpleTMsItems.TM_PARTINGSHOT);
         ALL_TMS.add(SimpleTMsItems.TM_PAYBACK);
@@ -1500,7 +1499,6 @@ public class TMsTRsList {
         ALL_TRS.add(SimpleTMsItems.TR_OVERDRIVE);
         ALL_TRS.add(SimpleTMsItems.TR_OVERHEAT);
         ALL_TRS.add(SimpleTMsItems.TR_PAINSPLIT);
-        ALL_TRS.add(SimpleTMsItems.TR_PALEOWAVE);
         ALL_TRS.add(SimpleTMsItems.TR_PARABOLICCHARGE);
         ALL_TRS.add(SimpleTMsItems.TR_PARTINGSHOT);
         ALL_TRS.add(SimpleTMsItems.TR_PAYBACK);
