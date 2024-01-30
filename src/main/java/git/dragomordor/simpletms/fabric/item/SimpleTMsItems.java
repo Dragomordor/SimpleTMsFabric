@@ -589,7 +589,6 @@ public class SimpleTMsItems {
     public static final MoveTutorItem TM_OVERDRIVE = registerMoveTutorItem("tm_overdrive", new MoveTutorItem("overdrive","Electric",false));
     public static final MoveTutorItem TM_OVERHEAT = registerMoveTutorItem("tm_overheat", new MoveTutorItem("overheat","Fire",false));
     public static final MoveTutorItem TM_PAINSPLIT = registerMoveTutorItem("tm_painsplit", new MoveTutorItem("painsplit","Normal",false));
-    public static final MoveTutorItem TM_PALEOWAVE = registerMoveTutorItem("tm_paleowave", new MoveTutorItem("paleowave","Rock",false));
     public static final MoveTutorItem TM_PARABOLICCHARGE = registerMoveTutorItem("tm_paraboliccharge", new MoveTutorItem("paraboliccharge","Electric",false));
     public static final MoveTutorItem TM_PARTINGSHOT = registerMoveTutorItem("tm_partingshot", new MoveTutorItem("partingshot","Dark",false));
     public static final MoveTutorItem TM_PAYBACK = registerMoveTutorItem("tm_payback", new MoveTutorItem("payback","Dark",false));
@@ -1511,7 +1510,6 @@ public class SimpleTMsItems {
     public static final MoveTutorItem TR_OVERDRIVE = registerMoveTutorItem("tr_overdrive", new MoveTutorItem("overdrive","Electric",true));
     public static final MoveTutorItem TR_OVERHEAT = registerMoveTutorItem("tr_overheat", new MoveTutorItem("overheat","Fire",true));
     public static final MoveTutorItem TR_PAINSPLIT = registerMoveTutorItem("tr_painsplit", new MoveTutorItem("painsplit","Normal",true));
-    public static final MoveTutorItem TR_PALEOWAVE = registerMoveTutorItem("tr_paleowave", new MoveTutorItem("paleowave","Rock",true));
     public static final MoveTutorItem TR_PARABOLICCHARGE = registerMoveTutorItem("tr_paraboliccharge", new MoveTutorItem("paraboliccharge","Electric",true));
     public static final MoveTutorItem TR_PARTINGSHOT = registerMoveTutorItem("tr_partingshot", new MoveTutorItem("partingshot","Dark",true));
     public static final MoveTutorItem TR_PAYBACK = registerMoveTutorItem("tr_payback", new MoveTutorItem("payback","Dark",true));

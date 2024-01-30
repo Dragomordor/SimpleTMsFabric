@@ -585,7 +585,6 @@ public class SimpleTMsItemGroups {
                         entries.add(SimpleTMsItems.TM_OVERDRIVE);
                         entries.add(SimpleTMsItems.TM_OVERHEAT);
                         entries.add(SimpleTMsItems.TM_PAINSPLIT);
-                        entries.add(SimpleTMsItems.TM_PALEOWAVE);
                         entries.add(SimpleTMsItems.TM_PARABOLICCHARGE);
                         entries.add(SimpleTMsItems.TM_PARTINGSHOT);
                         entries.add(SimpleTMsItems.TM_PAYBACK);
@@ -1515,7 +1514,6 @@ public class SimpleTMsItemGroups {
                         entries.add(SimpleTMsItems.TR_OVERDRIVE);
                         entries.add(SimpleTMsItems.TR_OVERHEAT);
                         entries.add(SimpleTMsItems.TR_PAINSPLIT);
-                        entries.add(SimpleTMsItems.TR_PALEOWAVE);
                         entries.add(SimpleTMsItems.TR_PARABOLICCHARGE);
                         entries.add(SimpleTMsItems.TR_PARTINGSHOT);
                         entries.add(SimpleTMsItems.TR_PAYBACK);
